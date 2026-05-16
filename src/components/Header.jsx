@@ -41,6 +41,7 @@ const Header = () => {
       }}>
         {/* Logo */}
         <a href="#home" style={{ display: 'flex', alignItems: 'center' }}>
+          <img
             src="img/logos.png"
             alt="Nimbow Logo"
             style={{ height: '40px', objectFit: 'contain' }}
