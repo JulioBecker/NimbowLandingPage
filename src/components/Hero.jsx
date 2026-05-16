@@ -230,11 +230,11 @@ const Hero = () => {
         }
         @media (max-width: 991px) {
           #home {
-            padding: 80px 0 40px !important;
+            padding: 100px 0 40px !important;
           }
           #home .container {
             grid-template-columns: 1fr !important;
-            padding-top: 10px;
+            padding-top: 20px;
             text-align: center;
           }
           #home .container > div:first-child {
