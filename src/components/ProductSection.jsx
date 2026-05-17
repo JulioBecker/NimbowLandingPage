@@ -1,18 +1,22 @@
 import React from 'react';
 import { CheckCircle2, ArrowRight } from 'lucide-react';
 
-const ProductSection = ({ id, reverse, title, subtitle, description, features, icon, image, bgColor, themeColor }) => {
+const ProductSection = ({ id, reverse, title, subtitle, description, features, icon, image, bgColor, themeColor, bgImage, logo }) => {
   return (
     <section id={id} style={{
       padding: '100px 0',
       backgroundColor: `color-mix(in srgb, ${themeColor} 20%, #050505)`,
+      backgroundImage: bgImage ? `linear-gradient(rgba(5, 5, 5, 0.7), rgba(5, 5, 5, 0.7)), url(${bgImage})` : 'none',
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+      backgroundRepeat: 'no-repeat',
       borderBottom: '1px solid rgba(255,255,255,0.05)',
       position: 'relative',
       overflow: 'hidden'
     }}>
       {/* Blurred colored orb for the 'blur' effect on dark background */}
       {themeColor && (
-        <div style={{
+        <div className="orb" style={{
           position: 'absolute',
           top: '50%',
           left: reverse ? '20%' : '80%',
@@ -100,24 +104,40 @@ const ProductSection = ({ id, reverse, title, subtitle, description, features, i
 
         {/* Text Content */}
         <div style={{ direction: 'ltr' }}>
-          <h4 style={{
-            color: 'rgba(255,255,255,0.6)',
-            fontSize: '14px',
-            fontWeight: '700',
-            marginBottom: '8px',
-            letterSpacing: '3px',
-            textShadow: '0 2px 10px rgba(0,0,0,0.5)'
-          }}>
-            NIMBOW
-          </h4>
-          <h2 className="section-title" style={{ 
-            color: themeColor || 'var(--nimbow-green)', 
-            marginBottom: '16px',
-            textShadow: `0 0 25px color-mix(in srgb, ${themeColor} 30%, transparent), 0 5px 15px rgba(0,0,0,0.3)`,
-            letterSpacing: '-0.5px'
-          }}>
-            {title}
-          </h2>
+          {logo ? (
+            <img 
+              src={logo} 
+              alt={title} 
+              style={{ 
+                width: '100%',
+                maxWidth: '350px',
+                height: 'auto', 
+                marginBottom: '24px', 
+                display: 'block' 
+              }} 
+            />
+          ) : (
+            <>
+              <h4 style={{
+                color: 'rgba(255,255,255,0.6)',
+                fontSize: '14px',
+                fontWeight: '700',
+                marginBottom: '8px',
+                letterSpacing: '3px',
+                textShadow: '0 2px 10px rgba(0,0,0,0.5)'
+              }}>
+                NIMBOW
+              </h4>
+              <h2 className="section-title" style={{ 
+                color: themeColor || 'var(--nimbow-green)', 
+                marginBottom: '16px',
+                textShadow: `0 0 25px color-mix(in srgb, ${themeColor} 30%, transparent), 0 5px 15px rgba(0,0,0,0.3)`,
+                letterSpacing: '-0.5px'
+              }}>
+                {title}
+              </h2>
+            </>
+          )}
           <p style={{
             fontSize: '14px',
             fontWeight: '600',
@@ -167,7 +187,7 @@ const ProductSection = ({ id, reverse, title, subtitle, description, features, i
               fontWeight: '800'
             }}
           >
-            SAIBA MAIS <ArrowRight size={20} />
+            CONHECER SOLUÇÃO <ArrowRight size={20} />
           </a>
         </div>
       </div>
@@ -192,6 +212,12 @@ const ProductSection = ({ id, reverse, title, subtitle, description, features, i
           /* Center the features grid inside the text content */
           #${id} .container > div:last-child > div:nth-of-type(1) {
             justify-content: center !important;
+          }
+          /* Resize the background orb for mobile to prevent overflow */
+          #${id} .orb {
+            width: 300px !important;
+            height: 300px !important;
+            filter: blur(40px) !important;
           }
         }
       `}} />

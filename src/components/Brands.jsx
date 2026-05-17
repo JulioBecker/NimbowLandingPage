@@ -3,9 +3,13 @@ import React from 'react';
 const Brands = () => {
   // Array de marcas base, adicionando mais algumas para dar volume
   const baseBrands = [
-    "DISNEY CELEBRA BRASIL",
+    "DISNEY CELEBRA",
     "K-1 BRAZIL",
     "CUPOLA SUMMIT",
+    "ADEMICON SUMMIT",
+    "MX1 GP",
+    "RISOTO SOLIDÁRIO",
+    "TRUCK FEST"
   ];
 
   // Duplica o array para criar o efeito de loop infinito perfeito (marquee)

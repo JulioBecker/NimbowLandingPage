@@ -15,10 +15,10 @@ const Header = () => {
 
   const navLinks = [
     { name: 'HOME', href: '#home', hoverColor: 'var(--nimbow-green)' },
-    { name: 'NIMBOW TICKETS', href: '#tickets', hoverColor: '#8B5CF6' },
-    { name: 'NIMBOW GESTÃO A&B', href: '#gestao', hoverColor: '#9BEA00' },
-    { name: 'NIMBOW ULTRACONECT', href: '#ultraconect', hoverColor: '#0033CC' },
-    { name: 'SOBRE A NIMBOW', href: '#sobre', hoverColor: 'var(--nimbow-green)' },
+    { name: 'A NIMBOW', href: '#sobre', hoverColor: 'var(--nimbow-green)' },
+    { name: 'NIMBOW | TICKETS', href: '#tickets', hoverColor: '#8B5CF6' },
+    { name: 'NIMBOW | GESTÃO A&B', href: '#gestao', hoverColor: '#9BEA00' },
+    { name: 'NIMBOW | ULTRA.CONECT', href: '#ultraconect', hoverColor: '#0033CC' },
   ];
 
   return (

@@ -7,7 +7,7 @@ const Hero = () => {
     email: '',
     whatsapp: '',
     event: '',
-    solution: ''
+    solution: []
   });
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const options = ["Gestão A&B", "Tickets", "Ultraconect", "Todas as soluções"];
@@ -19,7 +19,8 @@ const Hero = () => {
   const handleFormSubmit = (e) => {
     e.preventDefault();
     const { name, email, whatsapp, event, solution } = formData;
-    const message = `Olá! Tenho interesse nas soluções da Nimbow.\n\n*Nome:* ${name}\n*E-mail:* ${email}\n*WhatsApp:* ${whatsapp}\n*Evento:* ${event}\n*Solução de interesse:* ${solution}`;
+    const solutionsText = solution.length > 0 ? solution.join(', ') : 'Não informada';
+    const message = `Olá! Tenho interesse nas soluções da Nimbow.\n\n*Nome:* ${name}\n*E-mail:* ${email}\n*WhatsApp:* ${whatsapp}\n*Evento:* ${event}\n*Solução de interesse:* ${solutionsText}`;
     const encodedMessage = encodeURIComponent(message);
     window.open(`https://wa.me/5541988917885?text=${encodedMessage}`, '_blank');
   };
@@ -69,30 +70,43 @@ const Hero = () => {
         display: 'grid',
         gridTemplateColumns: '1fr 1fr',
         gap: '64px',
-        alignItems: 'center',
+        alignItems: 'start',
       }}>
         {/* Left Column */}
         <div style={{ paddingRight: '20px' }}>
           <h1 style={{
-            fontSize: '56px',
-            lineHeight: '1.1',
-            marginBottom: '24px',
+            fontSize: '48px',
+            lineHeight: '1.15',
+            marginBottom: '16px',
             color: 'var(--text-main)',
-            letterSpacing: '-1px',
+            letterSpacing: '-1.5px',
+            fontWeight: '900'
           }}>
-            NIMBOW <br />
-            <span style={{ color: 'var(--nimbow-green)' }}>COMPLETA PARA</span> <br />
-            O SEU EVENTO.
+            DO INGRESSO AO <br />FECHAMENTO DE CAIXA
           </h1>
           
+          <h2 style={{
+            fontSize: '22px',
+            lineHeight: '1.3',
+            marginBottom: '32px',
+            color: 'var(--text-main)',
+            fontWeight: '700',
+            letterSpacing: '-0.5px'
+          }} className="hero-subtitle">
+            A <span style={{ color: 'var(--nimbow-green)' }}>PLATAFORMA COMPLETA</span> <br />
+            PARA A OPERAÇÃO DO SEU EVENTO
+          </h2>
+          
           <p style={{
-            fontSize: '18px',
+            fontSize: '16px',
             color: 'var(--text-secondary)',
-            marginBottom: '48px',
+            marginBottom: '40px',
             maxWidth: '500px',
             lineHeight: '1.6',
+            fontWeight: '500'
           }}>
-            Soluções integradas que conectam gestão, vendas e pessoas, garantindo mais controle, desempenho e experiências inesquecíveis.
+            MAIS CONTROLE. MENOS FILA. MAIS VENDA.<br/>
+            Soluções integradas para eventos que precisam operar com eficiência do início ao fim.
           </p>
 
           <div className="features-grid" style={{
@@ -101,10 +115,10 @@ const Hero = () => {
             gap: '32px 24px',
             marginBottom: '48px',
           }}>
-            <FeatureItem icon={<Settings size={24} color="var(--nimbow-green)" />} text="GESTÃO COMPLETA" />
-            <FeatureItem icon={<TrendingUp size={24} color="var(--nimbow-green)" />} text="VENDAS INTELIGENTES" />
-            <FeatureItem icon={<Wifi size={24} color="var(--nimbow-green)" />} text="CONEXÃO EM TEMPO REAL" />
-            <FeatureItem icon={<Sparkles size={24} color="var(--nimbow-green)" />} text="EXPERIÊNCIAS INESQUECÍVEIS" />
+            <FeatureItem icon={<Settings size={24} color="var(--nimbow-green)" />} text="GESTÃO CENTRALIZADA DO EVENTO" />
+            <FeatureItem icon={<TrendingUp size={24} color="var(--nimbow-green)" />} text="DADOS E VENDAS EM TEMPO REAL" />
+            <FeatureItem icon={<Wifi size={24} color="var(--nimbow-green)" />} text="ESTABILIDADE PARA VENDER SEM PARAR" />
+            <FeatureItem icon={<Sparkles size={24} color="var(--nimbow-green)" />} text="TECNOLOGIA PREPARADA PARA ALTA DEMANDA" />
           </div>
 
           <a href="#gestao" className="btn btn-primary" style={{ padding: '16px 32px' }}>
@@ -121,11 +135,11 @@ const Hero = () => {
           border: '1px solid var(--border-color)',
         }}>
           <div style={{ textAlign: 'center', marginBottom: '32px' }}>
-            <h3 style={{ fontSize: '24px', marginBottom: '8px', color: 'var(--text-main)' }}>
-              QUER LEVAR A <span style={{ color: 'var(--nimbow-green)' }}>NIMBOW</span> <br /> PARA O SEU EVENTO?
+            <h3 style={{ fontSize: '24px', marginBottom: '8px', color: 'var(--text-main)', textTransform: 'uppercase' }}>
+              TRANSFORME A OPERAÇÃO DO SEU EVENTO!
             </h3>
             <p style={{ fontSize: '14px', color: 'var(--text-secondary)' }}>
-              Preencha o formulário e fale com nosso time de especialistas.
+              Fale com nosso time e descubra uma plataforma criada para reduzir falhas, acelerar operações e elevar a experiência do público.
             </p>
           </div>
 
@@ -135,72 +149,106 @@ const Hero = () => {
             <input type="tel" name="whatsapp" value={formData.whatsapp} onChange={handleInputChange} placeholder="WhatsApp" required className="form-input" />
             <input type="text" name="event" value={formData.event} onChange={handleInputChange} placeholder="Nome do evento" required className="form-input" />
             
-            {/* Custom Select Dropdown */}
-            <div style={{ position: 'relative' }}>
-              <div 
-                className="form-input" 
-                style={{ 
-                  display: 'flex', 
-                  justifyContent: 'space-between', 
-                  alignItems: 'center',
-                  cursor: 'pointer',
-                  backgroundColor: '#fff',
-                  borderColor: isDropdownOpen ? 'var(--nimbow-green)' : 'var(--border-color)',
-                  boxShadow: isDropdownOpen ? '0 0 0 3px rgba(155, 234, 0, 0.1)' : 'none',
-                  color: formData.solution ? 'var(--text-main)' : '#757575'
-                }}
-                onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-              >
-                {formData.solution || "Qual solução você tem interesse?"}
-                <ChevronDown size={16} style={{ transform: isDropdownOpen ? 'rotate(180deg)' : 'none', transition: 'transform 0.3s' }} />
-              </div>
-              
-              {isDropdownOpen && (
-                <div style={{
-                  position: 'absolute',
-                  top: '100%',
-                  left: 0,
-                  right: 0,
-                  marginTop: '4px',
-                  backgroundColor: '#fff',
-                  border: '1px solid var(--border-color)',
-                  borderRadius: '8px',
-                  boxShadow: '0 10px 24px rgba(0,0,0,0.1)',
-                  zIndex: 50,
-                  overflow: 'hidden'
-                }}>
-                  {options.map((opt) => (
-                    <div 
-                      key={opt}
-                      style={{
-                        padding: '12px 16px',
-                        cursor: 'pointer',
-                        fontSize: '14px',
-                        transition: 'background-color 0.2s',
-                        color: 'var(--text-main)',
-                      }}
-                      onMouseEnter={(e) => {
-                        e.currentTarget.style.backgroundColor = 'rgba(155, 234, 0, 0.1)';
-                        e.currentTarget.style.color = 'var(--nimbow-green)';
-                      }}
-                      onMouseLeave={(e) => {
-                        e.currentTarget.style.backgroundColor = 'transparent';
-                        e.currentTarget.style.color = 'var(--text-main)';
-                      }}
-                      onClick={() => {
-                        setFormData({ ...formData, solution: opt });
-                        setIsDropdownOpen(false);
-                      }}
-                    >
-                      {opt}
-                    </div>
-                  ))}
+              <div style={{ position: 'relative' }}>
+                <div 
+                  className="form-input" 
+                  style={{ 
+                    display: 'flex', 
+                    justifyContent: 'space-between', 
+                    alignItems: 'center',
+                    cursor: 'pointer',
+                    backgroundColor: '#fff',
+                    borderColor: isDropdownOpen ? 'var(--nimbow-green)' : 'var(--border-color)',
+                    boxShadow: isDropdownOpen ? '0 0 0 3px rgba(155, 234, 0, 0.1)' : 'none',
+                    color: formData.solution.length > 0 ? 'var(--text-main)' : 'var(--text-light)',
+                    fontSize: '15px',
+                    whiteSpace: 'nowrap',
+                    overflow: 'hidden',
+                    textOverflow: 'ellipsis'
+                  }}
+                  onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                >
+                  <span style={{ overflow: 'hidden', textOverflow: 'ellipsis' }}>
+                    {formData.solution.length > 0 ? formData.solution.join(', ') : "Qual solução você tem interesse?"}
+                  </span>
+                  <ChevronDown size={16} style={{ flexShrink: 0, transform: isDropdownOpen ? 'rotate(180deg)' : 'none', transition: 'transform 0.3s' }} />
                 </div>
-              )}
-            </div>
+                
+                {isDropdownOpen && (
+                  <div style={{
+                    position: 'absolute',
+                    top: '100%',
+                    left: 0,
+                    right: 0,
+                    marginTop: '4px',
+                    backgroundColor: '#fff',
+                    border: '1px solid var(--border-color)',
+                    borderRadius: '8px',
+                    boxShadow: '0 10px 24px rgba(0,0,0,0.1)',
+                    zIndex: 50,
+                    overflow: 'hidden'
+                  }}>
+                    {options.map((opt) => {
+                      const isSelected = formData.solution.includes(opt);
+                      return (
+                        <div 
+                          key={opt}
+                          style={{
+                            padding: '12px 16px',
+                            cursor: 'pointer',
+                            fontSize: '14px',
+                            transition: 'background-color 0.2s',
+                            color: 'var(--text-main)',
+                            backgroundColor: isSelected ? 'rgba(155, 234, 0, 0.05)' : 'transparent',
+                            display: 'flex',
+                            alignItems: 'center',
+                            gap: '12px'
+                          }}
+                          onMouseEnter={(e) => {
+                            if (!isSelected) e.currentTarget.style.backgroundColor = 'rgba(155, 234, 0, 0.05)';
+                          }}
+                          onMouseLeave={(e) => {
+                            if (!isSelected) e.currentTarget.style.backgroundColor = 'transparent';
+                          }}
+                          onClick={() => {
+                            let current = [...formData.solution];
+                            if (current.includes(opt)) {
+                              current = current.filter(item => item !== opt);
+                            } else {
+                              if (current.length < 2) {
+                                current.push(opt);
+                              } else {
+                                // If 2 are already selected, replace the last one
+                                current[1] = opt;
+                              }
+                            }
+                            setFormData({ ...formData, solution: current });
+                          }}
+                        >
+                          <input 
+                            type="checkbox"
+                            checked={isSelected}
+                            readOnly
+                            style={{
+                              accentColor: 'var(--nimbow-green)',
+                              cursor: 'pointer',
+                              width: '16px',
+                              height: '16px',
+                              margin: 0
+                            }}
+                          />
+                          <span style={{ fontWeight: isSelected ? '600' : '400' }}>
+                            {opt}
+                          </span>
+                        </div>
+                      );
+                    })}
+                  </div>
+                )}
+              </div>
 
             <button type="submit" className="btn btn-primary" style={{ marginTop: '8px', padding: '16px', width: '100%' }}>
-              QUERO UMA APRESENTAÇÃO <ArrowRight size={20} />
+              SOLICITAR PROPOSTA <ArrowRight size={20} />
             </button>
             
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px', marginTop: '16px', color: 'var(--text-light)', fontSize: '12px' }}>
@@ -214,14 +262,16 @@ const Hero = () => {
       <style dangerouslySetInnerHTML={{__html: `
         .form-input {
           width: 100%;
-          padding: 16px;
+          height: 52px;
+          padding: 0 16px;
           border: 1px solid var(--border-color);
           border-radius: 8px;
-          font-size: 14px;
+          font-size: 15px;
           color: var(--text-main);
           background-color: var(--bg-main);
           transition: border-color 0.3s;
           font-family: inherit;
+          box-sizing: border-box;
         }
         .form-input:focus {
           outline: none;
@@ -241,10 +291,18 @@ const Hero = () => {
             padding-right: 0 !important;
           }
           #home h1 {
-            font-size: 36px !important;
+            font-size: 34px !important;
+            line-height: 1.2 !important;
+            margin-bottom: 16px !important;
+          }
+          .hero-subtitle {
+            font-size: 19px !important;
+            line-height: 1.3 !important;
+            margin-bottom: 28px !important;
           }
           #home p {
             margin: 0 auto 32px !important;
+            font-size: 15px !important;
           }
           #home .btn {
             display: flex;
@@ -252,7 +310,34 @@ const Hero = () => {
             width: fit-content;
           }
           #home .features-grid {
+             grid-template-columns: 1fr 1fr !important;
+             gap: 24px 16px !important;
              justify-content: center !important;
+          }
+          #contato {
+            padding: 24px !important;
+            margin-top: 40px;
+          }
+        }
+        @media (max-width: 576px) {
+          #home h1 {
+            font-size: 26px !important;
+            line-height: 1.25 !important;
+            margin-bottom: 12px !important;
+          }
+          .hero-subtitle {
+            font-size: 16px !important;
+            line-height: 1.35 !important;
+            margin-bottom: 24px !important;
+          }
+          #home .features-grid {
+             display: flex !important;
+             flex-direction: column !important;
+             align-items: flex-start !important;
+             width: fit-content !important;
+             max-width: 100% !important;
+             margin: 0 auto 40px !important;
+             gap: 20px !important;
           }
         }
       `}} />
@@ -261,19 +346,20 @@ const Hero = () => {
 };
 
 const FeatureItem = ({ icon, text }) => (
-  <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+  <div style={{ display: 'flex', alignItems: 'center', gap: '16px', textAlign: 'left', width: '100%' }}>
     <div style={{
       width: '48px',
       height: '48px',
       borderRadius: '12px',
       backgroundColor: 'rgba(155, 234, 0, 0.1)',
       display: 'flex',
+      flex: '0 0 48px',
       alignItems: 'center',
       justifyContent: 'center',
     }}>
       {icon}
     </div>
-    <span style={{ fontSize: '12px', fontWeight: '700', letterSpacing: '0.5px', color: 'var(--text-main)' }}>
+    <span style={{ fontSize: '12px', fontWeight: '700', letterSpacing: '0.5px', color: 'var(--text-main)', lineHeight: '1.4' }}>
       {text}
     </span>
   </div>

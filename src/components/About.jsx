@@ -25,7 +25,7 @@ const About = () => {
             Sobre a Nimbow
           </h4>
           <h2 className="section-title" style={{ marginBottom: '24px', color: 'var(--text-main)' }}>
-            TECNOLOGIA QUE TRANSFORMA A INDÚSTRIA DE EVENTOS
+            TECNOLOGIA CRIADA PARA EVENTOS QUE NÃO PODEM PARAR
           </h2>
           <p style={{
             fontSize: '18px',
@@ -33,7 +33,7 @@ const About = () => {
             lineHeight: '1.6',
             marginBottom: '40px'
           }}>
-            A NIMBOW é uma plataforma completa que oferece soluções integradas para gestão, vendas de ingressos e conectividade. Tudo o que você precisa para realizar eventos extraordinários, com mais eficiência, segurança e resultados.
+            Desenvolvida para eventos que exigem alta performance, a NIMBOW centraliza ingressos, operação A&B, conectividade e gestão em uma única plataforma, oferecendo mais estabilidade, controle e eficiência para eventos de todos os portes.
           </p>
           <a href="#contato" className="btn btn-outline">
             SAIBA MAIS SOBRE A NIMBOW <ArrowRight size={20} />
@@ -90,6 +90,13 @@ const About = () => {
           #sobre .btn {
             margin: 0 auto;
             width: fit-content;
+          }
+          /* Adjust the visual graphic for mobile to prevent overflow */
+          #sobre .container > div:last-child {
+            height: 420px !important;
+            width: 100%;
+            transform: scale(0.85);
+            margin-top: 20px;
           }
         }
       `}} />

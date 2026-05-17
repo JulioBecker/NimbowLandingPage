@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Mail } from 'lucide-react';
 
 const FooterCTA = () => {
   return (
@@ -22,8 +22,8 @@ const FooterCTA = () => {
             marginBottom: '16px',
             lineHeight: '1.2'
           }}>
-            PRONTO PARA LEVAR SUA EXPERIÊNCIA <br />
-            PARA O <span style={{ color: 'var(--nimbow-green)' }}>PRÓXIMO NÍVEL?</span>
+            SEU EVENTO PRECISA DE UMA <br />
+            OPERAÇÃO <span style={{ color: 'var(--nimbow-green)' }}>À ALTURA.</span>
           </h2>
         </div>
 
@@ -34,10 +34,11 @@ const FooterCTA = () => {
             marginBottom: '24px',
             lineHeight: '1.6'
           }}>
-            Fale com um especialista e descubra como a NIMBOW pode transformar seu evento em um grande sucesso.
+            Tudo o que seu evento precisa em uma única plataforma.<br></br>
+            Fale com nosso time e descubra como a NIMBOW pode integrar vendas, operação e conectividade com mais estabilidade e controle em tempo real.
           </p>
-          <a 
-            href="https://wa.me/5541988917885?text=Olá! Gostaria de saber mais sobre as soluções da Nimbow." 
+          <a
+            href="https://wa.me/5541988917885?text=Olá! Gostaria de saber mais sobre as soluções da Nimbow."
             target="_blank"
             rel="noopener noreferrer"
             className="btn btn-primary"
@@ -52,20 +53,35 @@ const FooterCTA = () => {
         paddingTop: '24px',
         borderTop: '1px solid rgba(255,255,255,0.1)',
         display: 'flex',
-        justifyContent: 'space-between',
+        flexDirection: 'column',
         alignItems: 'center',
+        gap: '20px',
         fontSize: '14px',
         color: 'rgba(255,255,255,0.5)',
       }}>
+        {/* 1. Primeiro os botões */}
+        <div style={{ display: 'flex', gap: '20px' }}>
+          <a href="https://www.instagram.com/nimbowoficial/" target="_blank" rel="noopener noreferrer" style={{ color: 'rgba(255,255,255,0.5)', transition: 'color 0.3s' }} onMouseEnter={e => e.currentTarget.style.color = '#fff'} onMouseLeave={e => e.currentTarget.style.color = 'rgba(255,255,255,0.5)'}>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5" /><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" /><line x1="17.5" x2="17.51" y1="6.5" y2="6.5" /></svg>
+          </a>
+          <a href="mailto:contato@nimbow.com.br" style={{ color: 'rgba(255,255,255,0.5)', transition: 'color 0.3s' }} onMouseEnter={e => e.currentTarget.style.color = '#fff'} onMouseLeave={e => e.currentTarget.style.color = 'rgba(255,255,255,0.5)'}>
+            <Mail size={24} />
+          </a>
+        </div>
+
+        {/* 2. Depois os direitos reservados */}
+        <p style={{ textAlign: 'center', margin: 0 }}>© {new Date().getFullYear()} Nimbow. Todos os direitos reservados.</p>
+
+        {/* 3. E a logo da Nimbow por último */}
         <img
           src="img/logos.png"
           alt="Nimbow"
           style={{ height: '30px', filter: 'grayscale(1) invert(1) brightness(2)' }}
         />
-        <p>© {new Date().getFullYear()} Nimbow. Todos os direitos reservados.</p>
       </div>
 
-      <style dangerouslySetInnerHTML={{__html: `
+      <style dangerouslySetInnerHTML={{
+        __html: `
         @media (max-width: 991px) {
           footer .container {
             flex-direction: column !important;

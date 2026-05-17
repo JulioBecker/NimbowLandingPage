@@ -2,6 +2,7 @@ import React from 'react';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import Brands from './components/Brands';
+import Stats from './components/Stats';
 import About from './components/About';
 import ProductSection from './components/ProductSection';
 import FooterCTA from './components/FooterCTA';
@@ -14,57 +15,64 @@ function App() {
       id: "tickets",
       reverse: false,
       title: "TICKETS",
-      subtitle: "VENDA MAIS. MELHOR. SEM COMPLICAÇÃO.",
-      description: "Nosso sistema de venda de ingressos é rápido, seguro e flexível. Ideal para qualquer tipo de evento, do pequeno ao grandioso.",
+      logo: "img/NIMBOW TICKETS - FUNDO ESCURO.png",
+      subtitle: "A EXPERIÊNCIA COMEÇA NA ENTRADA",
+      description: "Venda ingressos, valide acessos e acompanhe a performance do seu evento em tempo real com uma operação rápida, segura e integrada",
       features: [
-        "Venda online e offline",
-        "Múltiplos tipos de ingresso",
         "Check-in ágil e seguro",
-        "Taxas e lotes personalizados",
-        "Integração com gestão A&B",
-        "Relatórios de vendas"
+        "Controle de acessos em tempo real",
+        "Gestão inteligente de ingressos",
+        "Operação online e offline",
+        "Bilheteria física e digital unificadas",
+        "Menos fila e mais agilidade"
       ],
       bgColor: 'rgba(139, 92, 246, 0.05)',
       themeColor: '#8B5CF6',
       icon: <Smartphone size={64} color="#8B5CF6" strokeWidth={1.5} />,
-      image: "img/tickets.jpeg"
+      image: "img/tickets.jpeg",
+      bgImage: "img/templatetickets.png"
     },
     {
       id: "gestao",
       reverse: true,
       title: "GESTÃO A&B",
-      subtitle: "GESTÃO INTELIGENTE. RESULTADOS REAIS.",
-      description: "Tenha o controle total do seu evento na palma da mão. Da operação ao financeiro, nossa plataforma de gestão oferece visibilidade completa para decisões mais rápidas e assertivas.",
+      logo: "img/NIMBOW GESTAO - FUNDO ESCURO.png",
+      subtitle: "MAIS CONTROLE. MAIS PERFORMANCE EM TEMPO REAL",
+      description: "Gestão operacional completa para eventos que exigem velocidade, controle financeiro e monitoramento em tempo real",
       features: [
-        "Financeiro e comissões",
-        "Controle de acesso",
-        "Relatórios em tempo real",
-        "Gestão de equipes",
-        "Estoque e PDV",
-        "Dashboards personalizados"
+        "Controle financeiro total e real",
+        "Gestão integrada de estoque e PDV",
+        "Operação rápida and estável",
+        "Dashboards personalizados",
+        "Acompanhamento de vendas em tempo real",
+        "Fechamento de caixa na hora"
       ],
       bgColor: 'rgba(155, 234, 0, 0.05)',
       themeColor: '#9BEA00',
       icon: <LayoutDashboard size={64} color="#9BEA00" strokeWidth={1.5} />,
-      image: "img/gestao.jpeg"
+      image: "img/gestao.jpeg",
+      bgImage: "img/templategestao.png"
     },
     {
       id: "ultraconect",
       reverse: false,
-      title: "ULTRACONECT",
-      subtitle: "CONECTIVIDADE QUE ELEVA A EXPERIÊNCIA.",
-      description: "Internet dedicada, estável e de alta performance para o seu evento. Com o UltraConect, você garante conexão para o público, equipes, operações e ativações – sem falhas.",
+      title: "ULTRA.CONECT",
+      logo: "img/NIMBOW ULTRA.CONECT - FUNDO ESCURO.png",
+      subtitle: "SUA OPERAÇÃO CONECTADA SEM INTERRUPÇÕES",
+      description: "O Ultra.Conect entrega conectividade dedicada para bilheteria, PDV's, ativações e operation técnica, garantindo mais estabilidade e performance durante todo o evento",
       features: [
-        "Internet dedicada de alta velocidade",
-        "Cobertura personalizada",
-        "Monitoramento 24/7",
+        "Internet dedicada para operação",
+        "Cobertura personalizada do evento",
+        "Estabilidade para PDV's e bilheteria",
         "Suporte técnico especializado",
-        "Mais estabilidade para vendas e ativações"
+        "Conectividade para grandes públicos",
+        "Operação online sem interrupções"
       ],
       bgColor: 'rgba(0, 51, 204, 0.05)',
       themeColor: '#0033CC',
       icon: <Wifi size={64} color="#0033CC" strokeWidth={1.5} />,
-      image: "img/wifi.jpeg"
+      image: "img/wifi.jpeg",
+      bgImage: "img/templateultra.png"
     }
   ];
 
@@ -73,6 +81,7 @@ function App() {
       <Header />
       <Hero />
       <Brands />
+      <Stats />
       <About />
       
       {products.map((prod, idx) => (
@@ -81,6 +90,7 @@ function App() {
           id={prod.id}
           reverse={prod.reverse}
           title={prod.title}
+          logo={prod.logo}
           subtitle={prod.subtitle}
           description={prod.description}
           features={prod.features}
@@ -88,6 +98,7 @@ function App() {
           image={prod.image}
           bgColor={prod.bgColor}
           themeColor={prod.themeColor}
+          bgImage={prod.bgImage}
         />
       ))}
 
