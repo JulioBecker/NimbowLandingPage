@@ -42,7 +42,7 @@ function App() {
       features: [
         "Controle financeiro total e real",
         "Gestão integrada de estoque e PDV",
-        "Operação rápida and estável",
+        "Operação rápida e estável",
         "Dashboards personalizados",
         "Acompanhamento de vendas em tempo real",
         "Fechamento de caixa na hora"
@@ -59,7 +59,7 @@ function App() {
       title: "ULTRA.CONECT",
       logo: "img/NIMBOW ULTRA.CONECT - FUNDO ESCURO.png",
       subtitle: "SUA OPERAÇÃO CONECTADA SEM INTERRUPÇÕES",
-      description: "O Ultra.Conect entrega conectividade dedicada para bilheteria, PDV's, ativações e operation técnica, garantindo mais estabilidade e performance durante todo o evento",
+      description: "O Ultra.Conect entrega conectividade dedicada para bilheteria, PDV's, ativações e operação técnica, garantindo mais estabilidade e performance durante todo o evento",
       features: [
         "Internet dedicada para operação",
         "Cobertura personalizada do evento",
@@ -83,9 +83,9 @@ function App() {
       <Brands />
       <Stats />
       <About />
-      
+
       {products.map((prod, idx) => (
-        <ProductSection 
+        <ProductSection
           key={idx}
           id={prod.id}
           reverse={prod.reverse}

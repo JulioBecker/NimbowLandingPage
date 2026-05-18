@@ -223,6 +223,11 @@ const Hero = () => {
                               }
                             }
                             setFormData({ ...formData, solution: current });
+                            
+                            // Close dropdown if 2 items are selected or if "Todas as soluções" is selected
+                            if (current.length === 2 || opt === "Todas as soluções") {
+                              setIsDropdownOpen(false);
+                            }
                           }}
                         >
                           <input 
@@ -316,7 +321,10 @@ const Hero = () => {
           }
           #contato {
             padding: 24px !important;
-            margin-top: 40px;
+            margin: 40px auto 0 !important;
+            width: 100% !important;
+            max-width: 480px !important;
+            box-sizing: border-box !important;
           }
         }
         @media (max-width: 576px) {
@@ -331,13 +339,16 @@ const Hero = () => {
             margin-bottom: 24px !important;
           }
           #home .features-grid {
-             display: flex !important;
-             flex-direction: column !important;
-             align-items: flex-start !important;
-             width: fit-content !important;
-             max-width: 100% !important;
+             display: grid !important;
+             grid-template-columns: 1fr !important;
+             width: 100% !important;
              margin: 0 auto 40px !important;
              gap: 20px !important;
+          }
+          .feature-item {
+             flex-direction: column !important;
+             align-items: center !important;
+             text-align: center !important;
           }
         }
       `}} />
@@ -346,7 +357,7 @@ const Hero = () => {
 };
 
 const FeatureItem = ({ icon, text }) => (
-  <div style={{ display: 'flex', alignItems: 'center', gap: '16px', textAlign: 'left', width: '100%' }}>
+  <div className="feature-item" style={{ display: 'flex', alignItems: 'center', gap: '16px', textAlign: 'left', width: '100%' }}>
     <div style={{
       width: '48px',
       height: '48px',

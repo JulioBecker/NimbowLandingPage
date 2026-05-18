@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
 
-const CountUp = ({ end, prefix = "", suffix = "", duration = 5000 }) => {
+const CountUp = ({ end, prefix = "", suffix = "", duration = 5000, noAnimation = false }) => {
   const [count, setCount] = useState(0);
   const countRef = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
@@ -44,7 +44,7 @@ const CountUp = ({ end, prefix = "", suffix = "", duration = 5000 }) => {
   }, [isVisible, end, duration]);
 
   return (
-    <span ref={countRef} style={{ 
+    <span ref={countRef} style={noAnimation ? { display: 'inline-block' } : { 
       display: 'inline-block', 
       opacity: 0,
       animation: isVisible ? 'boomEntrance 1.2s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards' : 'none'
@@ -96,7 +96,7 @@ const Stats = () => {
 
           <div className="stat-item">
             <h3 style={{ fontSize: '56px', color: '#8B5CF6', marginBottom: '8px', fontWeight: '900', letterSpacing: '-2px' }}>
-              <CountUp end={15} prefix="R$" suffix="M" duration={5000} />
+              <CountUp end={15} prefix="+R$" suffix="M" duration={5000} />
             </h3>
             <p style={{ fontSize: '14px', color: 'rgba(255,255,255,0.7)', textTransform: 'uppercase', letterSpacing: '1px', fontWeight: '600' }}>
               Processados em Vendas
@@ -116,9 +116,10 @@ const Stats = () => {
             <h3 style={{ fontSize: '40px', color: '#ffffff', marginBottom: '8px', fontWeight: '900', letterSpacing: '-1px' }}>
               <span style={{ 
                 display: 'inline-block', 
-                animation: 'boomEntrance 1.2s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards, pulse 2s infinite 1.2s' 
+                animation: 'boomEntrance 1.2s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards' 
               }}>
-                24/7
+                <CountUp end={24} duration={3000} noAnimation />/
+                <CountUp end={7} duration={3000} noAnimation />
               </span>
             </h3>
             <p style={{ fontSize: '14px', color: 'rgba(255,255,255,0.7)', textTransform: 'uppercase', letterSpacing: '1px', fontWeight: '600' }}>

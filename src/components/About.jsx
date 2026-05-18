@@ -6,6 +6,7 @@ const About = () => {
     <section id="sobre" style={{
       padding: '100px 0',
       backgroundColor: 'var(--bg-secondary)',
+      overflow: 'hidden'
     }}>
       <div className="container" style={{
         display: 'grid',
@@ -90,6 +91,13 @@ const About = () => {
           #sobre .btn {
             margin: 0 auto;
             width: fit-content;
+            max-width: 100% !important;
+            white-space: normal !important;
+            font-size: 13px !important;
+            padding: 12px 16px !important;
+            display: inline-flex !important;
+            align-items: center !important;
+            justify-content: center !important;
           }
           /* Adjust the visual graphic for mobile to prevent overflow */
           #sobre .container > div:last-child {

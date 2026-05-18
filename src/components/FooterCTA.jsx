@@ -74,9 +74,9 @@ const FooterCTA = () => {
 
         {/* 3. E a logo da Nimbow por último */}
         <img
-          src="img/logos.png"
+          src="img/NIMBOW PRINCIPAL - FUNDO ESCURO.png"
           alt="Nimbow"
-          style={{ height: '30px', filter: 'grayscale(1) invert(1) brightness(2)' }}
+          style={{ height: '40px', objectFit: 'contain' }}
         />
       </div>
 
@@ -93,6 +93,9 @@ const FooterCTA = () => {
           }
           .footer-cta-col {
             align-items: center !important;
+            text-align: center !important;
+            min-width: 0 !important;
+            width: 100% !important;
           }
           .footer-bottom {
             margin-top: 40px !important;

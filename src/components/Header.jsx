@@ -17,7 +17,7 @@ const Header = () => {
     { name: 'HOME', href: '#home', hoverColor: 'var(--nimbow-green)' },
     { name: 'A NIMBOW', href: '#sobre', hoverColor: 'var(--nimbow-green)' },
     { name: 'NIMBOW | TICKETS', href: '#tickets', hoverColor: '#8B5CF6' },
-    { name: 'NIMBOW | GESTÃO A&B', href: '#gestao', hoverColor: '#9BEA00' },
+    { name: 'NIMBOW | GESTÃO', href: '#gestao', hoverColor: '#9BEA00' },
     { name: 'NIMBOW | ULTRA.CONECT', href: '#ultraconect', hoverColor: '#0033CC' },
   ];
 
@@ -42,7 +42,7 @@ const Header = () => {
         {/* Logo */}
         <a href="#home" style={{ display: 'flex', alignItems: 'center' }}>
           <img
-            src="img/logos.png"
+            src="img/NIMBOW PRINCIPAL - FUNDO CLARO.png"
             alt="Nimbow Logo"
             style={{ height: '40px', objectFit: 'contain' }}
           />
@@ -70,11 +70,11 @@ const Header = () => {
 
         {/* Desktop CTA */}
         <div className="desktop-cta">
-          <a 
-            href="https://wa.me/5541988917885?text=Olá! Gostaria de saber mais sobre as soluções da Nimbow." 
+          <a
+            href="https://wa.me/5541988917885?text=Olá! Gostaria de saber mais sobre as soluções da Nimbow."
             target="_blank"
             rel="noopener noreferrer"
-            className="btn btn-outline" 
+            className="btn btn-outline"
             style={{
               fontSize: '12px',
               padding: '10px 20px',
@@ -126,11 +126,11 @@ const Header = () => {
               {link.name}
             </a>
           ))}
-          <a 
-            href="https://wa.me/5541988917885?text=Olá! Gostaria de saber mais sobre as soluções da Nimbow." 
+          <a
+            href="https://wa.me/5541988917885?text=Olá! Gostaria de saber mais sobre as soluções da Nimbow."
             target="_blank"
             rel="noopener noreferrer"
-            className="btn btn-primary" 
+            className="btn btn-primary"
             onClick={() => setMobileMenuOpen(false)}
           >
             FALAR COM ESPECIALISTA

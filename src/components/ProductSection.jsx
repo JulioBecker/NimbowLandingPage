@@ -158,15 +158,17 @@ const ProductSection = ({ id, reverse, title, subtitle, description, features, i
             </p>
           )}
 
-          <div style={{
+          <div className="product-features-grid" style={{
             display: 'grid',
             gridTemplateColumns: '1fr 1fr',
             gap: '16px',
             marginBottom: '40px'
           }}>
             {features.map((feature, idx) => (
-              <div key={idx} style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                <CheckCircle2 size={18} color={themeColor || "var(--nimbow-green)"} />
+              <div key={idx} className="product-feature-item" style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                <div style={{ flexShrink: 0, display: 'flex' }}>
+                  <CheckCircle2 size={18} color={themeColor || "var(--nimbow-green)"} />
+                </div>
                 <span style={{ fontSize: '14px', color: '#ffffff' }}>{feature}</span>
               </div>
             ))}
@@ -209,9 +211,19 @@ const ProductSection = ({ id, reverse, title, subtitle, description, features, i
             margin: 0 auto;
             width: fit-content;
           }
-          /* Center the features grid inside the text content */
-          #${id} .container > div:last-child > div:nth-of-type(1) {
-            justify-content: center !important;
+          /* Make product features grid a single column on mobile and center aligned */
+          #${id} .product-features-grid {
+            grid-template-columns: 1fr !important;
+            gap: 14px !important;
+            justify-items: center !important;
+            width: fit-content !important;
+            margin: 0 auto 40px !important;
+          }
+          #${id} .product-feature-item {
+            justify-content: flex-start !important;
+            text-align: left !important;
+            width: 100% !important;
+            max-width: 280px; /* Limit width to keep icon and text close */
           }
           /* Resize the background orb for mobile to prevent overflow */
           #${id} .orb {
